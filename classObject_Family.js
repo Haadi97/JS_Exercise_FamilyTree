@@ -9,7 +9,7 @@ class Family {
     this._familyList = familyTree;
   }
   addFamilyMember(person) {
-    this.familyList.push(`${person.name}: ${person.age}`);
+    this.familyList.push(person);
     return this.familyList;
   }
   removeFamilyMember(person) {
@@ -20,14 +20,17 @@ class Family {
     return this._familyList.length;
   }
   sortFamilyName() {
-    const orderedFamilyList = this.familyList.sort((a, b) => {
-      if (a < b) {
+    const currentFamilyList = this.familyList.sort((a, b) => {
+      if (a.name < b.name) {
         return -1;
       }
-      if (a > b) {
+      if (a.name > b.name) {
         return 1;
       }
       return 0;
+    });
+    const orderedFamilyList = currentFamilyList.map((familyMember) => {
+      return familyMember.name;
     });
     return orderedFamilyList;
   }
@@ -182,10 +185,9 @@ jones.addFamilyMember(marcus);
 jones.addFamilyMember(elaine);
 
 //jones.removeFamilyMember(marcus);
-console.log(jones.familyList);
-// console.log(jones.totalFamilyMember());
+console.log(jones.totalFamilyMember());
 console.log(jones.sortFamilyName());
-console.log(jones.sortFamilyAge());
+// console.log(jones.sortFamilyAge());
 
 console.log(eli.age);
 console.log(marianne.age);
