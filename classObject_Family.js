@@ -20,7 +20,7 @@ class Family {
     return this._familyList.length;
   }
   sortFamilyName() {
-    const currentFamilyList = this.familyList.sort((a, b) => {
+    const familyList = this.familyList.sort((a, b) => {
       if (a.name < b.name) {
         return -1;
       }
@@ -29,7 +29,7 @@ class Family {
       }
       return 0;
     });
-    const orderedFamilyList = currentFamilyList.map((familyMember) => {
+    const orderedFamilyList = familyList.map((familyMember) => {
       return familyMember.name;
     });
     return orderedFamilyList;
